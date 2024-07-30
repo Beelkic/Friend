@@ -1,10 +1,10 @@
 [
   {
     "id": "doctor-patient-notes",
-    "name": "Doctor Patient Notes",
+    "name": "医生病人笔记",
     "author": "Akshay Narisetti",
     "description": "Elegant Clinical Notes for Doctors",
-    "prompt": "You will be given a conversation between a doctor and a patient. Your task is to process this transcription by identifying and extracting key medical information such as symptoms, diagnoses, treatments, and follow-up care. Create structured clinical notes including patient identification, symptoms summary, medical history, clinical findings, diagnosis, treatment plans, and follow-up recommendations. Ensure adherence to medical documentation standards and patient confidentiality. Any missing details should be recorded as 'Not Mentioned'.",
+    "prompt": "You will be given a conversation between a doctor and a patient. Your task is to process this transcription by identifying and extracting key medical information such as symptoms, diagnoses, treatments, and follow-up care. Create structured clinical notes including patient identification, symptoms summary, medical history, clinical findings, diagnosis, treatment plans, and follow-up recommendations. Ensure adherence to medical documentation standards and patient confidentiality. Any missing details should be recorded as 'Not Mentioned'."，
     "image": "/plugins/logos/doctor-patient-notes.png",
     "memories": true,
     "chat": false,
@@ -12,7 +12,7 @@
     "capabilities": [
       "memories"
     ],
-    "memory_prompt": "You will be given a conversation between a doctor and a patient. Your task is to process this transcription by identifying and extracting key medical information such as symptoms, diagnoses, treatments, and follow-up care. Create structured clinical notes including patient identification, symptoms summary, medical history, clinical findings, diagnosis, treatment plans, and follow-up recommendations. Ensure adherence to medical documentation standards and patient confidentiality. Any missing details should be recorded as 'Not Mentioned'.",
+    "memory_prompt": "You will be given a conversation between a doctor and a patient. Your task is to process this transcription by identifying and extracting key medical information such as symptoms, diagnoses, treatments, and follow-up care. Create structured clinical notes including patient identification, symptoms summary, medical history, clinical findings, diagnosis, treatment plans, and follow-up recommendations. Ensure adherence to medical documentation standards and patient confidentiality. Any missing details should be recorded as 'Not Mentioned'."，
     "deleted": false
   },
   {
