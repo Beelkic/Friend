@@ -221,44 +221,44 @@ class SpeechProfileCardWidget extends StatelessWidget {
             ? const SizedBox()
             : Stack(
                 children: [
-                  GestureDetector(
-                    onTap: () async {
-                      MixpanelManager().pageOpened('Speech Profile Memories');
-                      bool hasSpeakerProfile = SharedPreferencesUtil().hasSpeakerProfile;
-                      await routeToPage(context, const SpeechProfilePage());
-                      if (hasSpeakerProfile != SharedPreferencesUtil().hasSpeakerProfile) {
-                        if (context.mounted) {
-                          context.read<CaptureProvider>().onRecordProfileSettingChanged();
-                        }
-                      }
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade900,
-                        borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      ),
-                      margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                      padding: const EdgeInsets.all(16),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(Icons.multitrack_audio),
-                                SizedBox(width: 16),
-                                Text(
-                                  'Teach Omi your voice',
-                                  style: TextStyle(color: Colors.white, fontSize: 16),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () async {
+                  //     MixpanelManager().pageOpened('Speech Profile Memories');
+                  //     bool hasSpeakerProfile = SharedPreferencesUtil().hasSpeakerProfile;
+                  //     await routeToPage(context, const SpeechProfilePage());
+                  //     if (hasSpeakerProfile != SharedPreferencesUtil().hasSpeakerProfile) {
+                  //       if (context.mounted) {
+                  //         context.read<CaptureProvider>().onRecordProfileSettingChanged();
+                  //       }
+                  //     }
+                  //   },
+                  //   child: Container(
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.grey.shade900,
+                  //       borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  //     ),
+                  //     margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  //     padding: const EdgeInsets.all(16),
+                  //     child: const Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //       children: [
+                  //         Expanded(
+                  //           child: Row(
+                  //             children: [
+                  //               Icon(Icons.multitrack_audio),
+                  //               SizedBox(width: 16),
+                  //               Text(
+                  //                 'Teach Omi your voice',
+                  //                 style: TextStyle(color: Colors.white, fontSize: 16),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //         Icon(Icons.arrow_forward_ios)
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   Positioned(
                     top: 12,
                     right: 24,

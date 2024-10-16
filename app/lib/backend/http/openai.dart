@@ -52,7 +52,7 @@ Future<String> getPhotoDescription(Uint8List data) async {
       ],
     },
   ];
-  var res = await gptApiCall(model: 'gpt-4o', messages: messages, maxTokens: 100);
+  var res = await gptApiCall(model: 'friendGPT', messages: messages, maxTokens: 100);
   if (res == null) return '';
   return res;
 }
@@ -68,7 +68,7 @@ Future<dynamic> gptApiCall({
   double temperature = 0.3,
   int? maxTokens,
 }) async {
-  final url = 'https://api.openai.com/v1/$urlSuffix';
+  final url = 'https://oneapi.boostark.love/v1/$urlSuffix';
   final headers = {
     'Content-Type': 'application/json; charset=utf-8',
     'Authorization': 'Bearer ${Env.openAIAPIKey}',
@@ -106,7 +106,7 @@ Future<String> executeGptPrompt(String? prompt, {bool ignoreCache = false}) asyn
   var cachedResponse = prefs.gptCompletionCache(promptBase64);
   if (!ignoreCache && prefs.gptCompletionCache(promptBase64).isNotEmpty) return cachedResponse;
 
-  String response = await gptApiCall(model: 'gpt-4o', messages: [
+  String response = await gptApiCall(model: 'friendGPT', messages: [
     {'role': 'system', 'content': prompt}
   ]);
   prefs.setGptCompletionCache(promptBase64, response);

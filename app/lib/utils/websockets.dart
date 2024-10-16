@@ -7,6 +7,7 @@ import 'package:friend_private/backend/schema/bt_device.dart';
 import 'package:friend_private/backend/schema/message_event.dart';
 import 'package:friend_private/backend/schema/transcript_segment.dart';
 import 'package:friend_private/env/env.dart';
+import 'package:friend_private/utils/logger.dart';
 import 'package:instabug_flutter/instabug_flutter.dart';
 import 'package:web_socket_channel/io.dart';
 
@@ -24,13 +25,16 @@ Future<IOWebSocketChannel?> _initWebsocketStream(
   bool includeSpeechProfile,
   bool newMemoryWatch,
 ) async {
-  debugPrint('Websocket Opening');
+  debugPrint('Websocket 打开中...');
   final recordingsLanguage = SharedPreferencesUtil().recordingsLanguage;
   var params = '?language=$recordingsLanguage&sample_rate=$sampleRate&codec=$codec&uid=${SharedPreferencesUtil().uid}'
       '&include_speech_profile=$includeSpeechProfile&new_memory_watch=$newMemoryWatch&stt_service=${SharedPreferencesUtil().transcriptionModel}';
+  debugPrint(params);
+  Logger.debug('ws://192.168.100.15:8000/listen$params');
 
   IOWebSocketChannel channel = IOWebSocketChannel.connect(
-    Uri.parse('${Env.apiBaseUrl!.replaceAll('https', 'wss')}listen$params'),
+    Uri.parse('${Env.apiBaseUrl!.replaceAll('http', 'wss')}listen$params'),
+    // 'ws://192.168.100.15:8000/listen$params'
     // headers: {'Authorization': await getAuthHeader()},
   );
 

@@ -106,6 +106,23 @@ Future<UserCredential?> signInWithApple() async {
   }
 }
 
+// 匿名登录
+Future<UserCredential?> signInAnonymously() async {
+  try {
+    debugPrint('Signing in anonymously...');
+    UserCredential userCred = await FirebaseAuth.instance.signInAnonymously();
+    debugPrint('Anonymous sign-in successful.');
+    return userCred;
+  } on FirebaseAuthException catch (e) {
+    debugPrint('FirebaseAuthException: ${e.code} - ${e.message}');
+    return null;
+  } catch (e) {
+    debugPrint('Error during anonymous sign-in: $e');
+    Logger.handle(e, null, message: 'An error occurred while signing in. Please try again later.');
+    return null;
+  }
+  }
+
 Future<UserCredential?> signInWithGoogle() async {
   try {
     print('Signing in with Google');

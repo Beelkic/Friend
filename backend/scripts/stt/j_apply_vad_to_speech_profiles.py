@@ -29,7 +29,7 @@ def execute():
         if aseg.duration_seconds < 5 or aseg.duration_seconds > 120:
             print('Invalid duration for', uid)
             return
-        upload_profile_audio(file_path, uid)
+        # upload_profile_audio(file_path, uid)
 
     threads = []
     for i, uid in enumerate(uids):

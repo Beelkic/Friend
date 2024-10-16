@@ -40,10 +40,12 @@ class _AuthComponentState extends State<AuthComponent> {
               const SizedBox(height: 32),
               !Platform.isIOS
                   ? SignInButton(
-                      Buttons.google,
+
+                      text: '开启',
+                      Buttons.anonymous,
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                      onPressed: () => provider.onGoogleSignIn(widget.onSignIn),
+                      onPressed: () => provider.onAnonymously(widget.onSignIn),
                     )
                   : SignInWithAppleButton(
                       style: SignInWithAppleButtonStyle.whiteOutlined,

@@ -6,6 +6,8 @@ import requests
 import torch
 from fastapi import HTTPException
 from pydub import AudioSegment
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 torch.set_num_threads(1)
 torch.hub.set_dir('pretrained_models')

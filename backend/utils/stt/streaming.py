@@ -152,6 +152,7 @@ def process_segments(uid: str, segments: list[dict]):
 
 
 def connect_to_deepgram(on_message, on_error, language: str, sample_rate: int, channels: int):
+    print('连接 WS 转录服务器', language, sample_rate, channels)
     # 'wss://api.deepgram.com/v1/listen?encoding=linear16&sample_rate=8000&language=$recordingsLanguage&model=nova-2-general&no_delay=true&endpointing=100&interim_results=false&smart_format=true&diarize=true'
     try:
         dg_connection = deepgram.listen.websocket.v("1")

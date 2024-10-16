@@ -28,6 +28,7 @@ def weighted_rating(plugin):
 
 
 def get_plugins_data(uid: str, include_reviews: bool = False) -> List[Plugin]:
+    print("开始获取插件数据")
     # print('get_plugins_data', uid, include_reviews)
     response = requests.get('https://raw.githubusercontent.com/BasedHardware/Omi/main/community-plugins.json')
     if response.status_code != 200:

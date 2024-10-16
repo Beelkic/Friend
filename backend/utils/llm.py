@@ -16,7 +16,7 @@ from models.trend import TrendEnum, ceo_options, company_options, software_produ
     ai_product_options, TrendType
 from utils.memories.facts import get_prompt_facts
 
-llm_mini = ChatOpenAI(model='gpt-4o-mini')
+llm_mini = ChatOpenAI(model='friendGPT',base_url='https://oneapi.boostark.love/v1')
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 parser = PydanticOutputParser(pydantic_object=Structured)
 
@@ -87,7 +87,7 @@ def get_transcript_structure(transcript: str, started_at: datetime, language_cod
 
         {format_instructions}'''.replace('    ', '').strip()
     )])
-    chain = prompt | ChatOpenAI(model='gpt-4o') | parser
+    chain = prompt | ChatOpenAI(model='friendGPT',base_url='https://oneapi.boostark.love/v1') | parser
 
     response = chain.invoke({
         'transcript': transcript.strip(),

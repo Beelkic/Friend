@@ -307,7 +307,7 @@ class TranscripSegmentSocketService implements IPureSocketListener {
     final recordingsLanguage = SharedPreferencesUtil().recordingsLanguage;
     var params = '?language=$recordingsLanguage&sample_rate=$sampleRate&codec=$codec&uid=${SharedPreferencesUtil().uid}'
         '&include_speech_profile=$includeSpeechProfile&new_memory_watch=$newMemoryWatch&stt_service=${SharedPreferencesUtil().transcriptionModel}';
-    String url = '${Env.apiBaseUrl!.replaceAll('https', 'wss')}listen$params';
+    String url = '${Env.apiBaseUrl!.replaceAll('http', 'ws')}listen$params';
 
     _socket = PureSocket(url);
     _socket.setListener(this);

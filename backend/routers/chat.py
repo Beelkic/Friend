@@ -40,6 +40,7 @@ def send_message(
     messages = filter_messages(messages, plugin_id)
 
     context_str, memories = retrieve_rag_context(uid, messages)
+
     response: str = qa_rag(uid, context_str, messages, plugin)
 
     ai_message = Message(

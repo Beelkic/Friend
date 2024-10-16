@@ -47,6 +47,21 @@ class AuthenticationProvider extends BaseProvider {
     });
   }
 
+  // 匿名登录
+  Future<void> onAnonymously(Function() onSignIn) async {
+    if (!loading) {
+      setLoadingState(true);
+      await signInAnonymously();
+      if (isSignedIn()) {
+        _signIn(onSignIn);
+      } else {
+        AppSnackbar.showSnackbarError('Failed to sign in anonymously, please try again.');
+      }
+      setLoadingState(false);
+    }
+  }
+
+
   Future<void> onGoogleSignIn(Function() onSignIn) async {
     if (!loading) {
       setLoadingState(true);

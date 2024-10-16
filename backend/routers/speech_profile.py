@@ -64,8 +64,8 @@ def upload_profile(file: UploadFile, uid: str = Depends(auth.get_current_user_ui
         raise HTTPException(status_code=400, detail="Audio duration is invalid")
 
     apply_vad_for_speech_profile(file_path)
-    url = upload_profile_audio(file_path, uid)
-    remove_user_soniox_speech_profile(uid)
+    # url = upload_profile_audio(file_path, uid)
+    # remove_user_soniox_speech_profile(uid)
     return {"url": url}
 
 
